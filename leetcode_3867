@@ -1,0 +1,21 @@
+class Solution {
+public:
+    long long gcdSum(vector<int>& nums) {
+        int max=0;
+        int length=nums.size();      
+        vector<int>prefixGcd;
+        prefixGcd.resize(length,1);
+        for(int i=0;i<length;i++){
+            if(nums[i]>max){
+                max=nums[i];
+            }
+            prefixGcd[i]=gcd(nums[i],max);
+        }
+        sort(prefixGcd.begin(),prefixGcd.end());
+        long long max_sum=0;
+        for(int i=0;i<(length>>1);i++){
+            max_sum+=gcd(prefixGcd[i],prefixGcd[length-1-i]);
+        }
+        return max_sum;
+    }
+};
