@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int gcdOfOddEvenSums(int n) {
+        return n;
+    }
+};
+/*
+奇数和 n*(2n)/2 
+偶数和 n*(2n+2)/2
+gcd(a*b,a*c)=gcd(a,a)*gcd(b,c)=a*gcd(b,c)
+2n/2与(2n+2)/2为相邻数，显然互质
+gcd(b,c)=1
+最大公约数即为n
+*/
